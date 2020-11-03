@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chiriezerie-fe"
+    }
+  },
+  "defaultProject": "chiriezerie-fe",
+  "cli": {
+    "analytics": "80b6128e-2a8a-4765-8dc9-e5a4ea8cb77d"
+  }
 }

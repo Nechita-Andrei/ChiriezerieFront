@@ -1,0 +1,9 @@
+export class Apartment {
+    id: string
+    userId: string
+    address: string
+    city: string
+    squareFeet: number
+    details: string
+    formData: FormData
+}

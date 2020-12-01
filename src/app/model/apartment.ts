@@ -5,5 +5,5 @@ export class Apartment {
     city: string
     squareFeet: number
     details: string
-    formData: FormData
+    images: string[]
 }

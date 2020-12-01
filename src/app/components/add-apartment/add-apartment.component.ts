@@ -29,10 +29,9 @@ export class AddApartmentComponent {
   ) {}
 
   files = [];
-  myFiles: string[] = [];  
   msg = "";    
-  sMsg: string = '';  
   urls = new Array<string>();
+
 
   ngOnInit() {}  
     
@@ -50,12 +49,8 @@ export class AddApartmentComponent {
         
       } else {
         this.files.push(e.target.files[index]);
-        this.myFiles.push(e.target.files[index]);
       }
     }
-
-    console.log(this.files)
-    console.log(this.myFiles)
 
     this.urls = [];
     for (let file of this.files) {
@@ -68,11 +63,6 @@ export class AddApartmentComponent {
   }  
 
   onSubmit() {
-    const formData = new FormData();  
-    for (var i = 0; i < this.myFiles.length; i++) {  
-      formData.append("fileUpload", this.myFiles[i]);  
-    }
-       console.log(formData.get('fileUpload'));
 
     let apartment: Apartment = {
       id: null,
@@ -82,10 +72,8 @@ export class AddApartmentComponent {
       city: this.addressForm.controls['city'].value,
       squareFeet: this.addressForm.controls['squareFeet'].value,
       details: this.addressForm.controls['details'].value,
-      formData: formData
+      images: this.urls
     }
-
-    console.log(apartment.formData.get('fileUpload'))
 
     this.apartmentService.addApartment(apartment).subscribe(
       (res) => {

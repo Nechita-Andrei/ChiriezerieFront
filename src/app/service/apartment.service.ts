@@ -19,8 +19,7 @@ export class ApartmentService {
 
 
   addApartment(apartment: Apartment): Observable<Apartment> {
-    console.log(apartment);
-    return this.httpClient.post<Apartment>(`${this.host}/apartment`, apartment);
+    return this.httpClient.post<Apartment>(`${this.host}/apartments`, apartment);
   }
 
 }

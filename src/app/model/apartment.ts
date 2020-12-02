@@ -1,9 +1,9 @@
 export class Apartment {
     id: string
-    userId: string
+    ownerId: string
     address: string
     city: string
     squareFeet: number
     details: string
-    images: string[]
+    pictureList: string[]
 }

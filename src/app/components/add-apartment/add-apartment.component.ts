@@ -66,13 +66,13 @@ export class AddApartmentComponent {
 
     let apartment: Apartment = {
       id: null,
-      // userId:'',
-      userId: this.authService.getUserFromLocalCache().userId,
+      // ownerId:'',
+      ownerId: this.authService.getUserFromLocalCache().userId,
       address: this.addressForm.controls['address'].value,
       city: this.addressForm.controls['city'].value,
       squareFeet: this.addressForm.controls['squareFeet'].value,
       details: this.addressForm.controls['details'].value,
-      images: this.urls
+      pictureList: this.urls
     }
 
     this.apartmentService.addApartment(apartment).subscribe(

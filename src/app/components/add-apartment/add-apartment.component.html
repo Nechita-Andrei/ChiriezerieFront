@@ -8,7 +8,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Square Feet</mat-label>
-            <input matInput placeholder="Square Feet" formControlName="squareFeet">
+            <input type="number" matInput placeholder="Square Feet" formControlName="squareFeet" >
             <mat-error *ngIf="addressForm.controls['squareFeet'].hasError('required')">
               Square Feet is <strong>required</strong>
             </mat-error>

@@ -78,8 +78,8 @@ export class AddApartmentComponent {
     this.apartmentService.addApartment(apartment).subscribe(
       (res) => {
         console.log(res)
-        // this.router.navigateByUrl('/home');
         this.utilsService.openSuccesSnackBar("Apartment added successfully!");
+        this.router.navigateByUrl('/home');
       },
       (err) => {
         console.log(err)

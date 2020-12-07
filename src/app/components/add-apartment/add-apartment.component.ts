@@ -29,7 +29,7 @@ export class AddApartmentComponent {
   ) {}
 
   files = [];
-  msg = "";    
+  msg = "";
   urls = new Array<string>();
 
 
@@ -63,28 +63,37 @@ export class AddApartmentComponent {
   }  
 
   onSubmit() {
-
-    let apartment: Apartment = {
-      id: null,
-      // ownerId:'',
-      ownerId: this.authService.getUserFromLocalCache().userId,
-      address: this.addressForm.controls['address'].value,
-      city: this.addressForm.controls['city'].value,
-      squareFeet: this.addressForm.controls['squareFeet'].value,
-      details: this.addressForm.controls['details'].value,
-      pictureList: this.urls
-    }
-
-    this.apartmentService.addApartment(apartment).subscribe(
-      (res) => {
-        console.log(res)
-        this.utilsService.openSuccesSnackBar("Apartment added successfully!");
-        this.router.navigateByUrl('/home');
-      },
-      (err) => {
-        console.log(err)
-        this.utilsService.openFailSnackBar("Failed to submit the application!");
+    if (this.validate()) {
+      let apartment: Apartment = {
+        id: null,
+        // ownerId:'',
+        ownerId: this.authService.getUserFromLocalCache().userId,
+        address: this.addressForm.controls['address'].value,
+        city: this.addressForm.controls['city'].value,
+        squareFeet: this.addressForm.controls['squareFeet'].value,
+        details: this.addressForm.controls['details'].value,
+        pictureList: this.urls
       }
-    )    
+
+      this.apartmentService.addApartment(apartment).subscribe(
+        (res) => {
+          console.log(res)
+          this.utilsService.openSuccesSnackBar("Apartment added successfully!");
+          this.router.navigateByUrl('/home');
+        },
+        (err) => {
+          console.log(err)
+          this.utilsService.openFailSnackBar("Failed to submit the application!");
+        }
+      )    
+    }
+  }
+
+  validate(): Boolean {
+    if (this.urls.length < 3) {
+      this.msg += "<p>At least 3 images must be selected!</p>";
+      return false;
+    }
+    return true;
   }
 }

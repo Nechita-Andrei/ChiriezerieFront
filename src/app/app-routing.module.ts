@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'add-apartment', 
     component: AddApartmentComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'home',

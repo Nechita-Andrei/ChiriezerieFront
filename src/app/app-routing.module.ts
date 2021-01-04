@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {
-    path: 'add-apartment', 
+    path: 'add-apartment',
     component: AddApartmentComponent,
     // canActivate: [AuthGuard]
   },
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: MyProfileComponent
   },
   {
-    path: 'announcement', 
+    path: 'announcement/:id',
     component: AnnouncementComponent
     // canActivate: [AuthGuard]
   },

@@ -38,22 +38,22 @@ export class AnnouncementComponent implements OnInit {
           pictureList: res.pictureList
         }
         this.apartment = apart
-      },
-      err => {
-        this.utilsService.openFailSnackBar("This apartment does not exist!")
-      }
-    )
-    this.userService.getUser(this.apartment.userId).subscribe(
-      res => {
-        const usr: SimpleUser = {
-          id: res.id,
-          name: res.name,
-          phoneNumber: res.phoneNumber,
-          email: res.email,
-          picture: res.picture
-        }
-        this.user = usr
-        
+        this.userService.getUser(this.apartment.userId).subscribe(
+          res => {
+            const usr: SimpleUser = {
+              id: res.id,
+              name: res.name,
+              phoneNumber: res.phoneNumber,
+              email: res.email,
+              picture: res.picture
+            }
+            this.user = usr
+            console.log(this.user);
+          },
+          err => {
+            this.utilsService.openFailSnackBar("This apartment does not exist!")
+          }
+        )
       },
       err => {
         this.utilsService.openFailSnackBar("This apartment does not exist!")
@@ -61,7 +61,6 @@ export class AnnouncementComponent implements OnInit {
     )
   }
 
-  
   openDialog(url: string): void {
     this.dialog.open(DialogData, {
       data: {

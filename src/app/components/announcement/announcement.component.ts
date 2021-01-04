@@ -28,6 +28,7 @@ export class AnnouncementComponent implements OnInit {
   ngOnInit(): void {
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
       res => {
+        console.log(this.route.snapshot.params);
         const apart: Apartment = {
           id: res.id,
           userId: res.userId,

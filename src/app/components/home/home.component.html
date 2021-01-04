@@ -1,1 +1,23 @@
-<p>home works!</p>
+<div class="home">
+    <div class="nav-bar">
+        <ul class="button-list">
+            <li><button [routerLink]="">Vezi Profil</button></li>
+            <li><button [routerLink]="this.url + 'add-apartment'">Adauga Anunt</button></li>
+        </ul>
+    </div>
+
+    <div class="search-bar">
+        <input class="apartment-search" [(ngModel)]="keyWord" (ngModelChange)="collectApartments()">
+    </div>
+
+    <div class="home-feed">
+        <ng-container *ngFor="let apartment of apartments" class="container-apartments">
+            <div class="apartment" [routerLink]="this.url + 'announcement/' + apartment.id">
+                <p>Adresa: {{apartment.address}} - {{apartment.city}}</p>
+                <p>Descriere: {{apartment.details}}</p>
+                <img class="first-photo" src="{{apartment.pictureList[0]}}" >
+            </div>
+        </ng-container>
+    </div>
+
+</div>

@@ -1,0 +1,96 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #60a3bc;
+  }
+
+div.home{
+    padding: 100px;
+
+
+    min-height: 600px;
+    width: 800px;
+    margin: auto;
+    background: #afbfd8;
+
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+div.apartment{
+    padding: 0;
+    margin: 50px auto;
+    text-align: center;
+    border: 2px solid;
+    background: #9ab7e6;
+    width: 30vw;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.apartment > p{
+    margin-top: 2%;
+    font-size: 18px;
+}
+
+div.nav-bar{
+    border-bottom: 3px solid;
+}
+
+ul.button-list > li{
+    display: inline;
+    margin-right: 10px;
+}
+
+ul.button-list > li > button{
+    background: #9ab7e6;
+    color: white;
+    width: 16vw;
+    height: 8vh;
+    font-size: 20px;
+    
+}
+
+ul.button-list > li > button:hover{
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+div.search_bar{
+    
+    background: #1B4F72!important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+
+    width: 800px;
+
+    padding: 20px;
+}
+
+input.apartment-search{
+    padding-left: 2px;
+    padding-right: 2px;
+    line-height: 56px;
+    height: 56px;
+    margin: 20px 65px;
+    font-size: 18px;
+
+    width: 80%;
+
+    box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img.first-photo{
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+}

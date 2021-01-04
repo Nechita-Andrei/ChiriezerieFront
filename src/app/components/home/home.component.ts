@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   apartments: Apartment[];
   keyWord: string;
-  url: string = "http://localhost:4200/announcement/";
+  url: string = "../";
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService,

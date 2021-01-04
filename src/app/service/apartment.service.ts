@@ -28,6 +28,7 @@ export class ApartmentService {
   }
 
   findApartment(id: string): Observable<Apartment> {
+    console.log(id);
     return this.httpClient.get<Apartment>(`${this.host}/apartments/${id}`)
     
     

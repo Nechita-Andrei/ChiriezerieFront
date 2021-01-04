@@ -36,7 +36,24 @@
             </div>
             <input type="password" class="form-control" name="password" placeholder="Password" required ngModel #passwordNameInput="ngModel">
           </div>
-          <span class="help-block" *ngIf="passwordNameInput.invalid && passwordNameInput.touched" style="color:red;">Please enter an email.</span>
+          <span class="help-block" *ngIf="passwordNameInput.invalid && passwordNameInput.touched" style="color:red;">Please enter a password.</span>
+           <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+            </div>
+            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required ngModel #phoneNumberInput="ngModel">
+          </div>
+          <span class="help-block" *ngIf="phoneNumberInput.invalid && phoneNumberInput.touched" style="color:red;">Please enter a phone number.</span>
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <select id="rol" name="rol"  class="form-control">
+              <option value="0">Landlord</option>
+              <option value="1">Tenant</option>
+            </select>
+          </div>
+
 
           <div class="d-flex justify-content-center mt-3 login_container">
             <button [disabled]="registerForm.invalid || showLoading" type="submit" name="button" class="btn login_btn">

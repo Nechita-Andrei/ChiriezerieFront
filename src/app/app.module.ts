@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './components/login/login.component';
 import {Register} from 'ts-node';
 import {UserComponent} from './components/user/user.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NotificationModule} from './notification/notification.module';
 import {NotificationService} from './notification/notification.service';
@@ -15,13 +15,25 @@ import {UserService} from './service/user.service';
 import {AuthGuard} from './guard/auth.guard';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {RegisterComponent} from './components/register/register.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AddApartmentComponent} from './components/add-apartment/add-apartment.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HomeComponent } from './components/home/home.component';
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    AddApartmentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +41,14 @@ import {RegisterComponent} from './components/register/register.component';
     FormsModule,
     HttpClientModule,
     NotificationModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
     NotificationService,

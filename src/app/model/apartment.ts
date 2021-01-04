@@ -1,6 +1,6 @@
 export class Apartment {
     id: string
-    ownerId: string
+    userId: string
     address: string
     city: string
     squareFeet: number

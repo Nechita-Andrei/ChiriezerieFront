@@ -67,7 +67,7 @@ export class AddApartmentComponent {
       let apartment: Apartment = {
         id: null,
         // ownerId:'',
-        ownerId: this.authService.getUserFromLocalCache().userId,
+        userId: this.authService.getUserFromLocalCache().userId,
         address: this.addressForm.controls['address'].value,
         city: this.addressForm.controls['city'].value,
         squareFeet: this.addressForm.controls['squareFeet'].value,

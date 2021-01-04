@@ -1,0 +1,70 @@
+
+.container {
+    padding: 100px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-side {
+    padding: 20px;
+}
+
+.right-side {
+    padding: 20px;
+    width: auto;
+    text-align: left;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+}
+
+.apartments-list {
+    max-height: 200px;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.apartment-image {
+    width: 150px;
+    height: 150px;
+}
+
+.list-element {
+    height: 200px;
+    width: 150px;
+    margin: 8px;
+    text-align: center;
+}
+
+.logout-button {
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #df3232;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10pt;
+}
+
+.shipping-card {
+    min-width: 120px;
+    margin: 20px auto;
+}
+  
+.card-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #afbfd8;
+}
+  

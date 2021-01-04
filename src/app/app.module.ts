@@ -24,6 +24,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './components/home/home.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
  
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     UserComponent,
     AddApartmentComponent,
-    HomeComponent
+    HomeComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

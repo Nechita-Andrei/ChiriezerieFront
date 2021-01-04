@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-card class="shipping-card" class="card-container">
+        <mat-card-header>
+            <mat-card-title>My Profile</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <div class="profile-container">
+                <div class="left-side">
+                    <img class="profile-image" src="../../../assets/avatar_placeholder.png">
+                </div>
+                <div class="right-side">
+                    Username: USERNAME <br>
+                    Phone: 0700000000 <br>
+                    email: placeholder@placeholder.com <br>
+                </div>
+            </div>
+            <div class="apartments-list">
+                <div *ngFor="let i of [1, 1, 1, 1, 1, 1, 1]">
+                    <div class="list-element">
+                        <img class="apartment-image" src="../../../assets/apartment_placeholder.jpg">
+                        Apartment #1
+                    </div>
+                </div> 
+            </div>
+            <button class="logout-button">Logout</button>
+        </mat-card-content>
+    </mat-card>
+</div>

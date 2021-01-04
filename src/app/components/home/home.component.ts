@@ -27,13 +27,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.keyWord = "";
     this.collectApartments();
-    /*
+    
     if (this.authenticationService.isUserLoggedIn()) {
       this.router.navigateByUrl('/home');
     } else {
       this.router.navigateByUrl('/login');
     }
-    */
+    
 
     
   }

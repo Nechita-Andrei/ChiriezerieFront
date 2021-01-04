@@ -10,13 +10,13 @@
                     <img class="profile-image" src="../../../assets/avatar_placeholder.png">
                 </div>
                 <div class="right-side">
-                    Username: USERNAME <br>
-                    Phone: 0700000000 <br>
-                    email: placeholder@placeholder.com <br>
+                    Username: {{user.name}} <br>
+                    Phone: {{user.phoneNumber}} <br>
+                    email: {{user.email}} <br>
                 </div>
             </div>
             <div class="apartments-list">
-                <div *ngFor="let i of [1, 1, 1, 1, 1, 1, 1]">
+                <div *ngFor="let image of user.picture">
                     <div class="list-element">
                         <img class="apartment-image" src="../../../assets/apartment_placeholder.jpg">
                         Apartment #1

@@ -22,4 +22,9 @@ export class ApartmentService {
     return this.httpClient.post<Apartment>(`${this.host}/apartments`, apartment);
   }
 
+  getAll(): Observable<Apartment[]>{
+    return this.httpClient.get<Apartment[]>(`${this.host}/apartments`);
+   
+  }
+
 }

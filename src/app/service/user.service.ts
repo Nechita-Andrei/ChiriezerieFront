@@ -15,6 +15,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(id: string): Observable<SimpleUser> {
+    return this.http.get<SimpleUser>(`${this.host}/users/${id}`)
     return of({
       id: "1",
       name: "Wladislav Putin",
@@ -22,6 +23,5 @@ export class UserService {
       phoneNumber: "0749696900",
       picture: ""
     })
-    // return this.http.get<SimpleUser>(`${this.host}/users/${id}`)
   }
 }

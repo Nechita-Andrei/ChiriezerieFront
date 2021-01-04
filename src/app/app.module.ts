@@ -25,6 +25,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './components/home/home.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
+import {MatDialogModule} from '@angular/material/dialog';
  
 
 @NgModule({
@@ -35,7 +37,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     UserComponent,
     AddApartmentComponent,
     HomeComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    AnnouncementComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule, 
+    MatDialogModule
   ],
   providers: [
     NotificationService,

@@ -1,0 +1,56 @@
+.container {
+    width: 65%;
+    margin: 50px auto;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #afbfd8;
+}
+
+.container-profile {
+    width: 30%;
+    margin: 50px auto;
+    padding: 50px;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* background: #afbfd8; */
+}
+
+.info {
+    margin: 30px;
+    padding-top: 20px;
+}
+
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 8px;
+    overflow-y: scroll;
+    opacity: 1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #3F51B5;
+    border-radius: 10px;
+}
+  
+li {
+    padding: 10px;
+}
+
+
+.images-container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    width: auto;
+}
+
+.image {
+    cursor: pointer;
+    padding: 15px 15px 15px 15px;
+    width:400px;
+}

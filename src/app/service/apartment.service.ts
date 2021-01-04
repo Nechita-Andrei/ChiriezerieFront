@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Apartment } from '../model/apartment';
 
@@ -27,4 +27,10 @@ export class ApartmentService {
    
   }
 
+  findApartment(id: string): Observable<Apartment> {
+    return this.httpClient.get<Apartment>(`${this.host}/apartments/${id}`)
+    
+    
+    // return this.httpClient.get<Apartment>(`${this.host}/apartments/${id}`)
+  }
 }

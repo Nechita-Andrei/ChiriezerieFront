@@ -46,7 +46,8 @@ export class AnnouncementComponent implements OnInit {
               name: res.name,
               phoneNumber: res.phoneNumber,
               email: res.email,
-              picture: res.picture
+              picture: res.picture,
+              apartments: []
             }
             this.user = usr
             console.log(this.user);

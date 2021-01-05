@@ -16,14 +16,14 @@
                 </div>
             </div>
             <div class="apartments-list">
-                <div *ngFor="let image of user.picture">
+                <div *ngFor="let announcement of user.apartments">
                     <div class="list-element">
-                        <img class="apartment-image" src="../../../assets/apartment_placeholder.jpg">
-                        Apartment #1
+                        <img class="apartment-image" src="{{announcement.pictureList[0]}}" [routerLink]="'../announcement/' + announcement.id">
+                        <p>{{announcement.address}} {{announcement.city}}</p>
                     </div>
                 </div> 
             </div>
-            <button class="logout-button">Logout</button>
+            <button class="logout-button" type="submit" (click)="logout()" [routerLink]="'../login'" >Logout</button>
         </mat-card-content>
     </mat-card>
 </div>

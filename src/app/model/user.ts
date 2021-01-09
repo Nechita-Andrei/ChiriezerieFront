@@ -13,7 +13,7 @@ export class User {
   public profileImageUrl: string;
   public active: boolean;
   public notLocked: boolean;
-  public role: string;
+  public roleName: string;
   public authorities: [];
   public accessToken: string;
 
@@ -29,7 +29,7 @@ export class User {
     this.profileImageUrl = '';
     this.active = false;
     this.notLocked = false;
-    this.role = '';
+    this.roleName = '';
     this.accessToken = '';
     this.password = '';
     this.userNameOrEmail = '';

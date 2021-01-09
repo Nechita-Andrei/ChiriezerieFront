@@ -18,46 +18,66 @@ export class MyProfileComponent implements OnInit {
   user: SimpleUser;
   private host = environment.apiUrl;
   apartments: Apartment[];
+  msg = '';
 
-  constructor(private router: Router, private http: HttpClient, private authenticationService: AuthenticationService,) { }
+  constructor(private router: Router, private http: HttpClient, private authenticationService: AuthenticationService,) {
+   }
 
   ngOnInit(): void {
     this.collectUserInfo();
-    
+
     this.getApartments();
   }
 
-  getApartments(){
+  getApartments() {
     console.log(this.apartments);
   }
 
-  getUser(){
+  getUser() {
     return this.http.get<SimpleUser>(`${this.host}/user`);
   }
 
-  collectUserInfo(){
+  collectUserInfo() {
     this.getUser().subscribe(
-      (res) =>{
-        this.user  = {
+      (res) => {
+        this.user = {
           id: res.id,
           name: res.name,
           phoneNumber: res.phoneNumber,
           email: res.email,
           picture: res.picture,
           apartments: res.apartments
-          
+
         }
         console.log(res.apartments);
         this.apartments = res.apartments;
         console.log(this.apartments);
       }
-      
+
     );
   }
 
-  public logout(){
-      console.log("Logging out ...");
-      this.authenticationService.logout();
+  public getSource(){
+    return this.user.picture!=null ? this.user.picture : '../../../assets/avatar_placeholder.png'
+  }
+
+  public changePicture(e) {
+    this.msg = "";
+    let file = "";
+
+    let reader = new FileReader();
+    reader.onload = (e: any) => {
+      console.log(e.target.result);
+      this.user.picture = e.target.result;
+    }
+    console.log(this.user.picture);
+    //reader.readAsDataURL(file);
+    this.getSource();
+  }
+
+  public logout() {
+    console.log("Logging out ...");
+    this.authenticationService.logout();
   }
 
 

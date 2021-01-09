@@ -7,7 +7,7 @@
     </div>
 
     <div class="search-bar">
-        <input class="apartment-search" [(ngModel)]="keyWord" (ngModelChange)="collectApartments()">
+        <input class="apartment-search" [(ngModel)]="keyWord" (ngSubmit)="collectApartments()">
     </div>
 
     <div class="home-feed">

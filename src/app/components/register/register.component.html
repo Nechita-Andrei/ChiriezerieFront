@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center h-50">
     <div class="user_card">
       <div class="d-flex justify-content-center">
-        <div style="margin-top: 10px;margin-bottom:-90px;">
+        <div style="margin-top: 40px;margin-bottom:-90px;">
           <h3>Chiriezerie</h3>
         </div>
       </div>
@@ -48,12 +48,12 @@
             <div class="input-group-append">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <select id="rol" name="rol"  class="form-control">
-              <option value="0">Landlord</option>
-              <option value="1">Tenant</option>
+            <select id="rol" name="role"  class="form-control" required ngModel #roleInput="ngModel">
+              <option value="ROLE_LANDLORD">Landlord</option>
+              <option value="ROLE_TENANT">Tenant</option>
             </select>
           </div>
-
+          <!--<span class="help-block" *ngIf="phoneNumberInput.invalid && phoneNumberInput.touched" style="color:red;">Upload a profile picture.</span>-->
 
           <div class="d-flex justify-content-center mt-3 login_container">
             <button [disabled]="registerForm.invalid || showLoading" type="submit" name="button" class="btn login_btn">

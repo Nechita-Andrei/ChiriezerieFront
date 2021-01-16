@@ -2,25 +2,25 @@
 <form [formGroup]="addressForm" class="container" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card" class="card-container">
     <mat-card-header>
-      <mat-card-title>Add Apartment</mat-card-title>
+      <mat-card-title>Adaugare apartament</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Square Feet</mat-label>
+            <mat-label>Suprafata (m<sup>2</sup>)</mat-label>
             <input type="number" matInput placeholder="Square Feet" formControlName="squareFeet" >
             <mat-error *ngIf="addressForm.controls['squareFeet'].hasError('required')">
-              Square Feet is <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>City</mat-label>
+            <mat-label>Localitate</mat-label>
             <input matInput placeholder="City" formControlName="city">
             <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
-              City is <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
@@ -28,10 +28,10 @@
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Address</mat-label>
+            <mat-label>Adresa</mat-label>
             <textarea matInput placeholder="Address" formControlName="address"></textarea>
             <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
-              Address is <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
@@ -39,10 +39,10 @@
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Details</mat-label>
+            <mat-label>Descriere</mat-label>
             <textarea matInput rows="5" placeholder="Details" formControlName="details"></textarea>
             <mat-error *ngIf="addressForm.controls['details'].hasError('required')">
-              Details are <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
@@ -50,49 +50,49 @@
       <div class="row">
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Price</mat-label>
+            <mat-label>Pret chirie (&euro; / luna)</mat-label>
             <input type="number" matInput placeholder="Price" formControlName="price" >
             <mat-error *ngIf="addressForm.controls['price'].hasError('required')">
-              Price is <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Rooms</mat-label>
+            <mat-label>Numarul de camere</mat-label>
             <input matInput placeholder="Rooms" formControlName="rooms">
             <mat-error *ngIf="addressForm.controls['rooms'].hasError('required')">
-              Number of rooms is <strong>required</strong>
+              Acest camp este obligatoriu
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
-        <div class="col"> 
-          <label for="file">Upload Images</label>
+        <div class="col">
+          <label for="file">Adauga imagini</label>
         </div>
       </div>
       <div class="row">
-        <div class="col"> 
+        <div class="col">
           <input class="choose" type="file" id="file" multiple (change)="getFileDetails($event)">
-        </div>  
-      </div>  
+        </div>
+      </div>
       <div class="row">
-        <div class="col"> 
+        <div class="col">
           <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
-        </div>  
-      </div>  
+        </div>
+      </div>
 
       <div class="row">
-        <div class="col"> 
+        <div class="col">
           <img style="padding: 15px;" *ngFor="let url of urls" [src]="url"  width="180">
-        </div>  
-      </div>  
-      
+        </div>
+      </div>
+
     </mat-card-content>
     <mat-card-actions style="display: table; margin: 0 auto;">
-      <button mat-raised-button color="primary" type="submit" 
-      [disabled]="addressForm.invalid">Submit</button>
+      <button mat-raised-button color="primary" type="submit"
+      [disabled]="addressForm.invalid">Adauga apartament</button>
     </mat-card-actions>
   </mat-card>
 </form>

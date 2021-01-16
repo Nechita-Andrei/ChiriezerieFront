@@ -10,21 +10,21 @@
                 <ul style="font-size: x-large;">
                     <li><b>Adresa: </b> {{apartment.address}}</li>
                     <li><b>Oras: </b> {{apartment.city}}</li>
-                    <li><b>Suprafata(m2): </b> {{apartment.squareFeet}}</li>
+                  <li><b>Suprafata(m<sup>2</sup>): </b> {{apartment.squareFeet}}</li>
                     <li><b>Numar de camere: </b> {{apartment.rooms}}</li>
                     <li><b>Detalii: </b> {{apartment.details}}</li>
-                    <li><b>Pret: </b>{{apartment.price}} euro</li>
+                    <li><b>Pret: </b>{{apartment.price}} &euro;/luna</li>
 
                 </ul>
             </section>
         </mat-card-content>
         <br>
         <mat-card-footer>
-            <div class="col images-container"> 
+            <div class="col images-container">
                 <div *ngFor="let url of apartment.pictureList; let i = index" style="text-align: center;">
                     <img [src]="url" class="image" (click)="openDialog(url)" >
                 </div>
-                </div>  
+                </div>
         </mat-card-footer>
     </mat-card>
     <mat-card class="container-profile" [routerLink]="this.url + '/profile/' + user.id">
@@ -76,7 +76,7 @@
                         </mat-select>
                     </mat-form-field>
             </form>
-            <button mat-raised-button color="primary" type="submit" 
+            <button mat-raised-button color="primary" type="submit"
                  (click)="onSubmit()">Submit</button>
         </mat-card-footer>
     </mat-card>

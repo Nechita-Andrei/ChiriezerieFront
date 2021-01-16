@@ -99,13 +99,15 @@ export class AnnouncementComponent implements OnInit {
   onSubmit(): void {
     const usersdata = JSON.parse(localStorage.getItem('usre'));
     let review: Review = {
-      apartmentId: this.route.snapshot.params.id,
+      apartmentId: Number(this.route.snapshot.params.id),
       name: this.userOn.name,
       date: "",
       reviewText: this.addressForm.controls['text'].value,
       rating: this.selectedValue,
       userId: Number(this.userOn.userId)
     }
+
+    console.log(review)
 
     this.apartService.postReview(review).subscribe(
       (res) => {

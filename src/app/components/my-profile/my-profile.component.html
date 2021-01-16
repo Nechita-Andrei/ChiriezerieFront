@@ -1,31 +1,35 @@
 <div class="container">
     <mat-card class="shipping-card" class="card-container">
         <mat-card-header>
-            <mat-card-title>My Profile</mat-card-title>
+            <mat-card-title>Profil</mat-card-title>
         </mat-card-header>
-        
+
         <mat-card-content>
             <div class="profile-container">
                 <div class="left-side">
-                    
-                    <img id="profile-picture" class="profile-image" [src]="getSource()" >
-                    <input id="profile-input" class="choose" type="file" (click)="changePicture($event)">
+
+                    <img style="padding: 15px;" *ngFor="let url of urls" [src]="url" width="300">
+
+                    <input id="profile-input" class="choose" type="file" (change)="changePicture($event)">
+
+                    <button class="upload" type="submit" (click)="addProfilePicture()">Submit</button>
                 </div>
                 <div class="right-side">
-                    Name: {{user.name}} <br>
-                    Phone: {{user.phoneNumber}} <br>
+                    Nume: {{user.name}} <br>
+                    Numar de telefon: {{user.phoneNumber}} <br>
                     Email: {{user.email}} <br>
                 </div>
             </div>
             <div class="apartments-list">
                 <div *ngFor="let announcement of user.apartments">
                     <div class="list-element">
-                        <img class="apartment-image" src="{{announcement.pictureList[0]}}" [routerLink]="'../announcement/' + announcement.id">
+                        <img class="apartment-image" src="{{announcement.pictureList[0]}}"
+                            [routerLink]="'../announcement/' + announcement.id">
                         <p>{{announcement.address}} {{announcement.city}}</p>
                     </div>
-                </div> 
+                </div>
             </div>
-            <button class="logout-button" type="submit" (click)="logout()" [routerLink]="'../login'" >Logout</button>
+            <button class="logout-button" type="submit" (click)="logout()" [routerLink]="'../login'">Logout</button>
         </mat-card-content>
     </mat-card>
 </div>

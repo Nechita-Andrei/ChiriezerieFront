@@ -5,6 +5,6 @@ export class SimpleUser {
     name: string
     phoneNumber: string
     email: string
-    picture: string
+    profilePicture: string
     apartments: Apartment[];
 }

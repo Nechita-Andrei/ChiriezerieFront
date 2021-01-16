@@ -53,6 +53,11 @@ div.apartment-details{
     padding: 5px;
 }
 
+p.apartment-price{
+    font-size: 20px;
+    text-align: center;
+}
+
 div.nav-bar{
     border-bottom: 3px solid;
 }

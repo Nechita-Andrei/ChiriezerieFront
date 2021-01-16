@@ -34,6 +34,7 @@ export class AnnouncementComponent implements OnInit {
   apartment: Apartment
   comments: Review[] = []
   user: SimpleUser
+  url: string = "/../";
 
   ngOnInit(): void {
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
@@ -58,7 +59,7 @@ export class AnnouncementComponent implements OnInit {
               name: res.name,
               phoneNumber: res.phoneNumber,
               email: res.email,
-              picture: res.picture,
+              profilePicture: res.profilePicture,
               apartments: []
             }
             this.user = usr

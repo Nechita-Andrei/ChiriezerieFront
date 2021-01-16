@@ -27,6 +27,19 @@
     font-size: 10pt;
   }
 
+.upload{
+    margin-top: 20px;
+    color: white;
+    display: inline-block;
+    background: #1CB6E0;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10pt;
+}
+
 .left-side {
     padding: 20px;
 }

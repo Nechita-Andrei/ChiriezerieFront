@@ -15,13 +15,11 @@
             <div class="apartment" [routerLink]="this.url + 'announcement/' + apartment.id">
                 <img class="first-photo" src="{{apartment.pictureList[0]}}" >
                 <div class="apartment-details">
-                    <p>Descriere: {{apartment.details}}</p>
-                    <p>Adresa: {{apartment.address}} - {{apartment.city}}</p>
-                    <p>Pret: {{apartment.price}}</p>
-                   
-                </div>
-                
-                
+                    <p>{{apartment.details}}</p>
+                    <p>{{apartment.address}} - {{apartment.city}}</p>
+                    
+                    <p class="apartment-price">{{apartment.price}} euro</p>
+                </div>               
             </div>
         </ng-container>
     </div>

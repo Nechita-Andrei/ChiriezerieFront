@@ -1,15 +1,18 @@
 <article style="display: flex;flex-direction: row;">
     <mat-card class="container">
         <mat-card-header>
-            <mat-card-title style="font-size: xx-large; font-weight: bold;">Apartment For Rent</mat-card-title>
+            <mat-card-title style="font-size: xx-large; font-weight: bold;">Apartament</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <section class="info">
                 <ul style="font-size: x-large;">
-                    <li><b>Address:</b> {{apartment.address}}</li>
-                    <li><b>City:</b> {{apartment.city}}</li>
-                    <li><b>Square Feet:</b> {{apartment.squareFeet}}</li>
-                    <li><b>Details:</b> {{apartment.details}}</li>
+                    <li><b>Adresa: </b> {{apartment.address}}</li>
+                    <li><b>Oras: </b> {{apartment.city}}</li>
+                    <li><b>Suprafata(m2): </b> {{apartment.squareFeet}}</li>
+                    <li><b>Numar de camere: </b> {{apartment.rooms}}</li>
+                    <li><b>Detalii: </b> {{apartment.details}}</li>
+                    <li><b>Pret: </b>{{apartment.price}} euro</li>
+
                 </ul>
             </section>
         </mat-card-content>
@@ -22,7 +25,7 @@
                 </div>  
         </mat-card-footer>
     </mat-card>
-    <mat-card class="container-profile">
+    <mat-card class="container-profile" [routerLink]="this.url + '/profile/' + user.id">
         <mat-card-header>
             <mat-card-title style="font-size: xx-large; font-weight: bold;">
                 {{user.name}}

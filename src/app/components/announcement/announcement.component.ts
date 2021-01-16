@@ -24,6 +24,7 @@ export class AnnouncementComponent implements OnInit {
 
   apartment: Apartment
   user: SimpleUser
+  url: string = "/../";
 
   ngOnInit(): void {
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(

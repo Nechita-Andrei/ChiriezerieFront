@@ -68,7 +68,6 @@ export class AddApartmentComponent {
     if (this.validate()) {
       let apartment: Apartment = {
         id: null,
-        // ownerId:'',
         userId: this.authService.getUserFromLocalCache().userId,
         address: this.addressForm.controls['address'].value,
         city: this.addressForm.controls['city'].value,

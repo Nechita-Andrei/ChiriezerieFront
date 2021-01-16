@@ -26,11 +26,13 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSource();
+    
 
     this.collectUserInfo();
 
     this.getApartments();
+
+    
   }
 
   getApartments() {
@@ -53,10 +55,11 @@ export class MyProfileComponent implements OnInit {
           name: res.name,
           phoneNumber: res.phoneNumber,
           email: res.email,
-          picture: res.picture,
-          apartments: res.apartments
+          profilePicture: res.profilePicture,
+          apartments: res.apartments,
 
         }
+        this.getSource();
         console.log(res.apartments);
         this.apartments = res.apartments;
         console.log(this.apartments);
@@ -66,9 +69,15 @@ export class MyProfileComponent implements OnInit {
   }
 
   public getSource() {
-    if (this.urls.length == 0) {
+    
+    if (!this.user || !this.user.profilePicture) {
       this.urls = ['../../../assets/avatar_placeholder.png']
     }
+    else{
+      console.log(this.user.profilePicture);
+      this.urls = [this.user.profilePicture];
+    }
+    
   }
 
   public changePicture(e) {
@@ -110,9 +119,9 @@ export class MyProfileComponent implements OnInit {
 
   public addProfilePicture() {
     //console.log('profile update', `${this.host}/users/picture`);
-    this.user.picture = this.urls[0];
+    this.user.profilePicture = this.urls[0];
     //console.log(this.user.id, this.user.picture);
-    this.http.put<SimpleUser>(`${this.host}/users/picture`, { "id": this.user.id, "profilePicture": this.user.picture }).subscribe(value => {
+    this.http.put<SimpleUser>(`${this.host}/users/picture`, { "id": this.user.id, "profilePicture": this.user.profilePicture }).subscribe(value => {
       console.log(value);
     });
   }

@@ -27,6 +27,12 @@ export class ApartmentService {
     return this.httpClient.get<Apartment[]>(`${this.host}/apartments`);
   }
 
+  getAllByFilters(city?: string, rooms?: number){
+    console.log(city);
+    console.log(rooms);
+    return this.httpClient.get<Apartment[]>(`${this.host}/apartments/filter?` + `${city? "&city=" + city: ""}`  + `${rooms? "&rooms=" + rooms: ""}` );
+  }
+
   findApartment(id: string): Observable<Apartment> {
     console.log(id);
     return this.httpClient.get<Apartment>(`${this.host}/apartments/${id}`)

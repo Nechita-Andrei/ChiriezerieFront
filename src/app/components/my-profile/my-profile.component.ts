@@ -26,6 +26,11 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authenticationService.isUserLoggedIn()) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
     
 
     this.collectUserInfo();

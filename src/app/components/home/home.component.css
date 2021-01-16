@@ -59,7 +59,10 @@ p.apartment-price{
     text-align: center;
 }
 
-
+input.image-search{
+    width: 20px;
+    height: 20px;
+}
 
 div.search_bar{
     
@@ -71,6 +74,13 @@ div.search_bar{
     width: 800px;
 
     padding: 20px;
+}
+
+div.apartment-rooms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
 }
 
 input.apartment-search{

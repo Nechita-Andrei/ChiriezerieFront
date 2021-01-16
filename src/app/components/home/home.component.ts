@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   apartments: Apartment[];
   keyWord: string;
+  rooms: number;
   url: string = "../";
 
   constructor(private router: Router,
@@ -38,17 +39,20 @@ export class HomeComponent implements OnInit {
     
   }
 
+  public collectByFilter(){
+    this.apartmentService.getAllByFilters(this.keyWord, this.rooms).subscribe(
+      (res) => {
+        this.apartments = res;
+      }
+    )
+  }
+
   
 
-  collectApartments(){
-    console.log(this.keyWord);
+  public collectApartments(){
     this.apartmentService.getAll().subscribe(
       (res) => {
-        this.apartments = res.filter(
-          (a) => {
-            
-            return a.city.includes(this.keyWord);}
-        );
+        this.apartments = res;
       
       }
     );

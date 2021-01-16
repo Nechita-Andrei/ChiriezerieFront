@@ -25,7 +25,7 @@ export class AddApartmentComponent {
   constructor(
     private fb: FormBuilder,
     private apartmentService: ApartmentService,
-    private authService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private utilsService: UtilsService,
     private router: Router
   ) {}
@@ -35,7 +35,13 @@ export class AddApartmentComponent {
   urls = new Array<string>();
 
 
-  ngOnInit() {}  
+  ngOnInit() {
+    if (this.authenticationService.isUserLoggedIn()) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
+  }  
     
   getFileDetails(e) {  
     this.msg = "";
@@ -68,7 +74,7 @@ export class AddApartmentComponent {
     if (this.validate()) {
       let apartment: Apartment = {
         id: null,
-        userId: this.authService.getUserFromLocalCache().id,
+        userId: this.authenticationService.getUserFromLocalCache().id,
         address: this.addressForm.controls['address'].value,
         city: this.addressForm.controls['city'].value,
         squareFeet: this.addressForm.controls['squareFeet'].value,

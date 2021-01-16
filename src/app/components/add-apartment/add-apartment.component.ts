@@ -17,7 +17,9 @@ export class AddApartmentComponent {
     squareFeet: [null, Validators.required],
     city: [null, Validators.required],
     address: [null, Validators.required],
-    details: [null, Validators.required]
+    details: [null, Validators.required],
+    price: [null, Validators.required],
+    rooms: [null, Validators.required]
   });
 
   constructor(
@@ -73,8 +75,8 @@ export class AddApartmentComponent {
         squareFeet: this.addressForm.controls['squareFeet'].value,
         details: this.addressForm.controls['details'].value,
         pictureList: this.urls,
-        price: 0,
-        rooms: 0
+        price: this.addressForm.controls['price'].value,
+        rooms: this.addressForm.controls['rooms'].value
       }
 
       this.apartmentService.addApartment(apartment).subscribe(

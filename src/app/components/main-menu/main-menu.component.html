@@ -1,0 +1,15 @@
+<div class="nav-bar">
+  <div class="logo">
+    <p class="logo"><button disabled>Chririezerie</button></p>
+  </div>
+  <div class="buttons">
+    <ul class="button-list">
+        <li><button [ngClass]="currentPage == 'home' ? 'selected' : '' " class="menu-button" id="acasa" [routerLink]="'/home'">Acasa</button></li>
+        <li><button [ngClass]="currentPage == 'profile' ? 'selected' : '' " class="menu-button" id="profil" class="menu-button" [routerLink]="'/profile'">Vezi Profil</button></li>
+        <li><button [ngClass]="currentPage == 'add-apartment' ? 'selected' : '' " class="menu-button" id="add-apartment" class="menu-button" [routerLink]="'/add-apartment'">Adauga Anunt</button></li>
+    </ul>
+    
+  </div>
+  
+
+</div>

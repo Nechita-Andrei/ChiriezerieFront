@@ -46,6 +46,10 @@ export class MyProfileComponent implements OnInit {
     return this.http.get<SimpleUser>(`${this.host}/user`);
   }
 
+  checkUser(){
+    return !this.route.snapshot.params.id;
+  }
+
   collectUserInfo() {
 
     this.getUser(this.route.snapshot.params.id).subscribe(

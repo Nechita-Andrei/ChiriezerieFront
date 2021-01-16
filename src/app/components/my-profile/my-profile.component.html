@@ -1,3 +1,4 @@
+<app-main-menu currentPage="profile"></app-main-menu>
 <div class="container">
     <mat-card class="shipping-card" class="card-container">
         <mat-card-header>
@@ -10,9 +11,13 @@
 
                     <img style="padding: 15px;" *ngFor="let url of urls" [src]="url" width="300">
 
-                    <input id="profile-input" class="choose" type="file" (change)="changePicture($event)">
+                    <div class="profile-editing" *ngIf="checkUser()">
+                        <input id="profile-input" class="choose" type="file" (change)="changePicture($event)">
 
-                    <button class="upload" type="submit" (click)="addProfilePicture()">Submit</button>
+                        <button class="upload" type="submit" (click)="addProfilePicture()">Submit</button>
+                    </div>
+
+                    
                 </div>
                 <div class="right-side">
                     Nume: {{user.name}} <br>

@@ -24,6 +24,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './components/home/home.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -38,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     AddApartmentComponent,
     HomeComponent,
     MyProfileComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

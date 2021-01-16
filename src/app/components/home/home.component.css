@@ -6,15 +6,16 @@ body, html {
   }
 
 div.home{
-    padding: 100px;
+    padding: 50px;
 
 
     min-height: 600px;
     width: 1000px;
+    
     margin: auto;
+    margin-top: 100px;
     background: #afbfd8;
 
-    padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -58,28 +59,7 @@ p.apartment-price{
     text-align: center;
 }
 
-div.nav-bar{
-    border-bottom: 3px solid;
-}
 
-ul.button-list > li{
-    display: inline;
-    margin-right: 10px;
-}
-
-ul.button-list > li > button{
-    background: #9ab7e6;
-    color: white;
-    width: 16vw;
-    height: 8vh;
-    font-size: 20px;
-    
-}
-
-ul.button-list > li > button:hover{
-    box-shadow: none !important;
-    outline: 0px !important;
-}
 
 div.search_bar{
     

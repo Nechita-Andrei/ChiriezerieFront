@@ -27,6 +27,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
  
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     ReactiveFormsModule,
     MatSnackBarModule, 
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [
     NotificationService,

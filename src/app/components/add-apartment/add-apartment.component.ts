@@ -36,9 +36,7 @@ export class AddApartmentComponent {
 
 
   ngOnInit() {
-    if (this.authenticationService.isUserLoggedIn()) {
-      this.router.navigateByUrl('/home');
-    } else {
+    if (!this.authenticationService.isUserLoggedIn()) {
       this.router.navigateByUrl('/login');
     }
   }  

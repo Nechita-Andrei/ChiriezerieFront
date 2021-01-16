@@ -26,9 +26,7 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.authenticationService.isUserLoggedIn()) {
-      this.router.navigateByUrl('/home');
-    } else {
+    if (!this.authenticationService.isUserLoggedIn()) {
       this.router.navigateByUrl('/login');
     }
     

@@ -97,14 +97,13 @@ export class AnnouncementComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const usersdata = JSON.parse(localStorage.getItem('usre'));
     let review: Review = {
       apartmentId: Number(this.route.snapshot.params.id),
       name: this.userOn.name,
       date: "",
       reviewText: this.addressForm.controls['text'].value,
       rating: this.selectedValue,
-      userId: Number(this.userOn.userId)
+      userId: Number(this.userOn.id)
     }
 
     console.log(review)
@@ -113,12 +112,26 @@ export class AnnouncementComponent implements OnInit {
       (res) => {
         console.log(res)
         this.utilsService.openSuccesSnackBar("Review added successfully!");
+        this.clear()
+        this.apartService.getComments(this.route.snapshot.params.id).subscribe(
+          res => {
+            this.comments = res
+          },
+          err => {
+            this.utilsService.openFailSnackBar(err.error)
+          }
+        )
+    
       },
       (err) => {
         console.log(err)
         this.utilsService.openFailSnackBar("Failed to submit the Review!");
       }
     )    
+  }
+
+  clear(): void {
+    this.addressForm.controls["text"].setValue("")
   }
 
   openDialog(url: string): void {

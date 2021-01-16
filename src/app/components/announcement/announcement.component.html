@@ -40,7 +40,7 @@
             </ul>
         </section>
         <section style="text-align: center;">
-            <img style="max-width: 400px; width: 80%;" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
+            <img style="max-width: 400px; width: 80%;" [src]='user.profilePicture ? user.profilePicture : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"'>
         </section>
     </mat-card>
 </section>

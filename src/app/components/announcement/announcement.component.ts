@@ -36,7 +36,9 @@ export class AnnouncementComponent implements OnInit {
           city: res.city,
           squareFeet: res.squareFeet,
           details: res.details,
-          pictureList: res.pictureList
+          pictureList: res.pictureList,
+          price: res.price,
+          rooms: res.rooms
         }
         this.apartment = apart
         this.userService.getUser(this.apartment.userId).subscribe(

@@ -6,4 +6,6 @@ export class Apartment {
     squareFeet: number
     details: string
     pictureList: string[]
+    price: number
+    rooms: number
 }

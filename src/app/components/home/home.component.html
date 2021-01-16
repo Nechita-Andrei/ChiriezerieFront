@@ -13,9 +13,15 @@
     <div class="home-feed">
         <ng-container *ngFor="let apartment of apartments" class="container-apartments">
             <div class="apartment" [routerLink]="this.url + 'announcement/' + apartment.id">
-                <p>Adresa: {{apartment.address}} - {{apartment.city}}</p>
-                <p>Descriere: {{apartment.details}}</p>
                 <img class="first-photo" src="{{apartment.pictureList[0]}}" >
+                <div class="apartment-details">
+                    <p>Descriere: {{apartment.details}}</p>
+                    <p>Adresa: {{apartment.address}} - {{apartment.city}}</p>
+                    <p>Pret: {{apartment.price}}</p>
+                   
+                </div>
+                
+                
             </div>
         </ng-container>
     </div>

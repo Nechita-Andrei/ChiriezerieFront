@@ -72,7 +72,9 @@ export class AddApartmentComponent {
         city: this.addressForm.controls['city'].value,
         squareFeet: this.addressForm.controls['squareFeet'].value,
         details: this.addressForm.controls['details'].value,
-        pictureList: this.urls
+        pictureList: this.urls,
+        price: 0,
+        rooms: 0
       }
 
       this.apartmentService.addApartment(apartment).subscribe(

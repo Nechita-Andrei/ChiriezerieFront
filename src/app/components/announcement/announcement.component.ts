@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Apartment } from 'src/app/model/apartment';
 import { Review } from 'src/app/model/review';
 import { SimpleUser } from 'src/app/model/simpleUser';
+import { User } from 'src/app/model/user';
 import { ApartmentService } from 'src/app/service/apartment.service';
 import { UserService } from 'src/app/service/user.service';
 import { UtilsService } from 'src/app/service/utils.service';
@@ -29,6 +30,7 @@ export class AnnouncementComponent implements OnInit {
   apartment: Apartment
   comments: Review[] = []
   user: SimpleUser
+  userOn: User
   url: string = "/../";
 
   ngOnInit(): void {
@@ -75,6 +77,13 @@ export class AnnouncementComponent implements OnInit {
         this.utilsService.openFailSnackBar(err.error)
       }
     )
+
+    this.userService.getUser1().subscribe(
+      res => {
+        this.userOn = res
+      }
+    )
+    
   }
 
   addressForm = this.fb.group({
@@ -88,14 +97,14 @@ export class AnnouncementComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const usersdata = JSON.parse( localStorage.getItem('key_users' ) );
+    const usersdata = JSON.parse(localStorage.getItem('usre'));
     let review: Review = {
       apartmentId: this.route.snapshot.params.id,
-      name: usersdata.name,
+      name: this.userOn.name,
       date: "",
       reviewText: this.addressForm.controls['text'].value,
       rating: this.selectedValue,
-      userId: usersdata.userId
+      userId: Number(this.userOn.userId)
     }
 
     this.apartService.postReview(review).subscribe(

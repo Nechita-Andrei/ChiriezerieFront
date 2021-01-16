@@ -83,6 +83,27 @@ div.apartment-rooms{
     font-size: 16px;
 }
 
+div.apartment-rooms > label{
+    padding: 5px;
+}
+
+div.apartment-prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 16px;
+}
+
+div.apartment-prices > label{
+    padding: 5px;
+}
+
+input.price-input{
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    width: 100%;
+}
+
 input.apartment-search{
     padding-left: 2px;
     padding-right: 2px;

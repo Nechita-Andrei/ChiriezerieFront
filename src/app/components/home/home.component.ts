@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   keyWord: string;
   rooms: number;
   url: string = "../";
+  minPrice: number;
+  maxPrice: number;
+  minSurface: number;
+  maxSurface: number;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService,
@@ -40,7 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
   public collectByFilter(){
-    this.apartmentService.getAllByFilters(this.keyWord, this.rooms).subscribe(
+    this.apartmentService.getAllByFilters(this.keyWord, this.rooms, this.minPrice, this.maxPrice, this.minSurface, this.maxSurface).subscribe(
       (res) => {
         this.apartments = res;
       }

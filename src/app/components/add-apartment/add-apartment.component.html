@@ -9,7 +9,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Suprafata (m<sup>2</sup>)</mat-label>
-            <input type="number" matInput placeholder="Square Feet" formControlName="squareFeet" >
+            <input type="number" matInput placeholder="Metri patrati" formControlName="squareFeet" >
             <mat-error *ngIf="addressForm.controls['squareFeet'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>
@@ -18,7 +18,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Localitate</mat-label>
-            <input matInput placeholder="City" formControlName="city">
+            <input matInput placeholder="Oras" formControlName="city">
             <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>
@@ -29,7 +29,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Adresa</mat-label>
-            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <textarea matInput placeholder="Adresa" formControlName="address"></textarea>
             <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>
@@ -40,7 +40,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Descriere</mat-label>
-            <textarea matInput rows="5" placeholder="Details" formControlName="details"></textarea>
+            <textarea matInput rows="5" placeholder="Detalii" formControlName="details"></textarea>
             <mat-error *ngIf="addressForm.controls['details'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>
@@ -51,7 +51,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Pret chirie (&euro; / luna)</mat-label>
-            <input type="number" matInput placeholder="Price" formControlName="price" >
+            <input type="number" matInput placeholder="Pret" formControlName="price" >
             <mat-error *ngIf="addressForm.controls['price'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>
@@ -60,7 +60,7 @@
         <div class="col">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Numarul de camere</mat-label>
-            <input matInput placeholder="Rooms" formControlName="rooms">
+            <input matInput placeholder="Camere" formControlName="rooms">
             <mat-error *ngIf="addressForm.controls['rooms'].hasError('required')">
               Acest camp este obligatoriu
             </mat-error>

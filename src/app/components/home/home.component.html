@@ -22,8 +22,22 @@
             </label>
         </div>
         <div class="apartment-prices">
-            <label>Pret minim</label>
-            <label>Pret maxim</label>
+            <label>
+                Pret minim
+                <input class="price-input" type="number" [(ngModel)]="minPrice">
+            </label>
+            <label>
+                Pret maxim
+                <input class="price-input" type="number" [(ngModel)]="maxPrice"> 
+            </label>
+            <label>
+                Suprafata minima
+                <input class="price-input" type="number" [(ngModel)]="minSurface"> 
+            </label>
+            <label>
+                Suprafata maxima
+                <input class="price-input" type="number" [(ngModel)]="maxSurface"> 
+            </label>
         </div>
 
     </div>

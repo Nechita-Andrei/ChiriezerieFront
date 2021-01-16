@@ -36,45 +36,47 @@ export class AnnouncementComponent implements OnInit {
   user: SimpleUser
 
   ngOnInit(): void {
-    // this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
-    //   res => {
-    //     console.log(this.route.snapshot.params);
-    //     const apart: Apartment = {
-    //       id: res.id,
-    //       userId: res.userId,
-    //       address: res.address,
-    //       city: res.city,
-    //       squareFeet: res.squareFeet,
-    //       details: res.details,
-    //       pictureList: res.pictureList,
-    //       price: res.price,
-    //       rooms: res.rooms
-    //     }
-    //     this.apartment = apart
-    //     this.userService.getUser(this.apartment.userId).subscribe(
-    //       res => {
-    //         const usr: SimpleUser = {
-    //           id: res.id,
-    //           name: res.name,
-    //           phoneNumber: res.phoneNumber,
-    //           email: res.email,
-    //           picture: res.picture,
-    //           apartments: []
-    //         }
-    //         this.user = usr
-    //         console.log(this.user);
-    //       }
-    //     )
-    //   },
-    //   err => {
-    //     //this.utilsService.openFailSnackBar("This apartment does not exist!")
-    //   }
-    // )
+    this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
+      res => {
+        console.log(this.route.snapshot.params);
+        const apart: Apartment = {
+          id: res.id,
+          userId: res.userId,
+          address: res.address,
+          city: res.city,
+          squareFeet: res.squareFeet,
+          details: res.details,
+          pictureList: res.pictureList,
+          price: res.price,
+          rooms: res.rooms
+        }
+        this.apartment = apart
+        this.userService.getUser(this.apartment.userId).subscribe(
+          res => {
+            const usr: SimpleUser = {
+              id: res.id,
+              name: res.name,
+              phoneNumber: res.phoneNumber,
+              email: res.email,
+              picture: res.picture,
+              apartments: []
+            }
+            this.user = usr
+            console.log(this.user);
+          }
+        )
+      },
+      err => {
+        this.utilsService.openFailSnackBar("This apartment does not exist!")
+      }
+    )
 
     this.apartService.getComments(this.route.snapshot.params.id).subscribe(
       res => {
         this.comments = res
-        console.log(this.comments)
+      },
+      err => {
+        this.utilsService.openFailSnackBar(err.error)
       }
     )
   }

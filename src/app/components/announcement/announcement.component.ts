@@ -9,11 +9,6 @@ import { ApartmentService } from 'src/app/service/apartment.service';
 import { UserService } from 'src/app/service/user.service';
 import { UtilsService } from 'src/app/service/utils.service';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 
 @Component({
   selector: 'app-announcement',

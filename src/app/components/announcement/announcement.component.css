@@ -41,6 +41,10 @@ li {
     padding: 10px;
 }
 
+img.suggestion-image{
+    width: 200px;
+    height: 200px;
+}
 
 .images-container {
     display: flex;

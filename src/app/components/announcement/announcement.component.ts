@@ -32,6 +32,7 @@ export class AnnouncementComponent implements OnInit {
   user: SimpleUser
   userOn: User
   url: string = "/../";
+  suggestedApartments: Apartment[] = []
 
   ngOnInit(): void {
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
@@ -63,6 +64,11 @@ export class AnnouncementComponent implements OnInit {
             console.log(this.user);
           }
         )
+        this.apartService.getAllByFilters(this.apartment.city).subscribe(
+          res => {
+            this.suggestedApartments = res;
+          }
+        );
       },
       err => {
         this.utilsService.openFailSnackBar("This apartment does not exist!")

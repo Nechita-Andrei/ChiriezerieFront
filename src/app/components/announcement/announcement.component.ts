@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Apartment } from 'src/app/model/apartment';
 import { Review } from 'src/app/model/review';
 import { SimpleUser } from 'src/app/model/simpleUser';
+import { User } from 'src/app/model/user';
 import { ApartmentService } from 'src/app/service/apartment.service';
 import { UserService } from 'src/app/service/user.service';
 import { UtilsService } from 'src/app/service/utils.service';
@@ -29,6 +30,7 @@ export class AnnouncementComponent implements OnInit {
   apartment: Apartment
   comments: Review[] = []
   user: SimpleUser
+  userOn: User
   url: string = "/../";
 
   ngOnInit(): void {
@@ -75,6 +77,13 @@ export class AnnouncementComponent implements OnInit {
         this.utilsService.openFailSnackBar(err.error)
       }
     )
+
+    this.userService.getUser1().subscribe(
+      res => {
+        this.userOn = res
+      }
+    )
+    
   }
 
   addressForm = this.fb.group({
@@ -88,26 +97,41 @@ export class AnnouncementComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const usersdata = JSON.parse( localStorage.getItem('key_users' ) );
     let review: Review = {
-      apartmentId: this.route.snapshot.params.id,
-      name: usersdata.name,
+      apartmentId: Number(this.route.snapshot.params.id),
+      name: this.userOn.name,
       date: "",
       reviewText: this.addressForm.controls['text'].value,
       rating: this.selectedValue,
-      userId: usersdata.userId
+      userId: Number(this.userOn.id)
     }
+
+    console.log(review)
 
     this.apartService.postReview(review).subscribe(
       (res) => {
         console.log(res)
         this.utilsService.openSuccesSnackBar("Review added successfully!");
+        this.clear()
+        this.apartService.getComments(this.route.snapshot.params.id).subscribe(
+          res => {
+            this.comments = res
+          },
+          err => {
+            this.utilsService.openFailSnackBar(err.error)
+          }
+        )
+    
       },
       (err) => {
         console.log(err)
         this.utilsService.openFailSnackBar("Failed to submit the Review!");
       }
     )    
+  }
+
+  clear(): void {
+    this.addressForm.controls["text"].setValue("")
   }
 
   openDialog(url: string): void {

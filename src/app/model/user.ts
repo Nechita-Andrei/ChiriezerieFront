@@ -1,5 +1,5 @@
 export class User {
-  public userId: string;
+  public id: string;
   public firstName: string;
   public lastName: string;
   public name: string;
@@ -18,7 +18,7 @@ export class User {
   public accessToken: string;
 
   constructor() {
-    this.userId = '';
+    this.id = '';
     this.firstName = '';
     this.lastName = '';
     this.username = '';

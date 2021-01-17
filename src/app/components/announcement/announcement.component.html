@@ -29,9 +29,13 @@
     </mat-card>
     <mat-card class="container-profile" [routerLink]="this.url + '/profile/' + user.id">
         <mat-card-header>
-            <mat-card-title style="font-size: xx-large; font-weight: bold;">
-                {{user.name}}
+
+            <mat-card-title class="profile-first" style="font-size: xx-large; font-weight: bold;">
+                <img class="profile-image" [src]='user.profilePicture ? user.profilePicture : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"'>
+
+                <div class="profile-name">{{user.name}}</div>
             </mat-card-title>
+            
         </mat-card-header>
         <section class="info" style="margin-left: -30px;">
             <ul style="font-size: x-large;">
@@ -39,9 +43,7 @@
                 <li><b>Email:</b> {{user.email}}</li>
             </ul>
         </section>
-        <section style="text-align: center;">
-            <img style="max-width: 400px; width: 80%;" [src]='user.profilePicture ? user.profilePicture : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"'>
-        </section>
+
     </mat-card>
 </section>
 <section>

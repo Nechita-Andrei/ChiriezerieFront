@@ -30,7 +30,7 @@
                 <div *ngFor="let announcement of user.apartments">
                     <div class="list-element">
                         <img class="apartment-image" src="{{announcement.pictureList[0]}}"
-                            [routerLink]="'../announcement/' + announcement.id">
+                            [routerLink]="'/announcement/' + announcement.id">
                         <p>{{announcement.address}} {{announcement.city}}</p>
                     </div>
                 </div>

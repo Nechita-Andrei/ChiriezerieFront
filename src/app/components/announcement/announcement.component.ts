@@ -112,11 +112,25 @@ export class AnnouncementComponent implements OnInit {
   }
 
   onSubmit(): void {
+    let text: string = ""
+    let words = this.addressForm.controls['text'].value.split(' ')
+    words.forEach(element => {
+      console.log(element)
+      if (this.swearWords.includes(element)) {
+        text += "**** "
+      } else  {
+        text += element + " "
+      }
+    });
+
+    console.log(text)
+
     let review: Review = {
       apartmentId: Number(this.route.snapshot.params.id),
       name: this.userOn.name,
       date: "",
-      reviewText: this.addressForm.controls['text'].value,
+      // reviewText: this.addressForm.controls['text'].value,
+      reviewText: text,
       rating: this.selectedValue,
       userId: Number(this.userOn.id)
     }
@@ -152,6 +166,10 @@ export class AnnouncementComponent implements OnInit {
       }
     });
   }
+
+
+  swearWords: string[] = ["muie", "pula", "pizda", "pisat", "cacat", "caca", "fuck", "coaie", "sloboz", "pla", "plm", "pisda", "pul@", "p1zda", "infect", "puli", "pulii", "ma-ta", "mata", "pizdii"]
+
 }
 
 

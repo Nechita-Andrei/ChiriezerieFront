@@ -73,9 +73,11 @@ export class AnnouncementComponent implements OnInit {
         )
         this.apartService.getAllByFilters(this.apartment.city).subscribe(
           res => {
-            this.suggestedApartments = res;
+            this.suggestedApartments = res.slice(0, 3);
+            //console.log(this.suggestedApartments.length);
           }
         );
+        
       },
       err => {
         this.utilsService.openFailSnackBar("This apartment does not exist!")
@@ -113,7 +115,7 @@ export class AnnouncementComponent implements OnInit {
 
   public checkReviewed(){
 
-    if(this.comments.filter( e => e.userId.toString() === this.userOn.id.toString()).length > 0){
+    if(this.comments.filter( e => e.userId.toString() === this.userOn.id.toString() || e.userId.toString() === this.user.id.toString()).length > 0){
       return false;
     }
 

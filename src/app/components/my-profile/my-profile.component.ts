@@ -6,6 +6,7 @@ import { SimpleUser } from 'src/app/model/simpleUser';
 import { User } from 'src/app/model/user';
 import { ApartmentService } from 'src/app/service/apartment.service';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { UtilsService } from 'src/app/service/utils.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -22,7 +23,8 @@ export class MyProfileComponent implements OnInit {
   urls = new Array<string>();
   files = [];
 
-  constructor(private router: Router, private http: HttpClient, private authenticationService: AuthenticationService, private route: ActivatedRoute,) {
+  constructor(private router: Router, private http: HttpClient, private authenticationService: AuthenticationService, private route: ActivatedRoute,
+    private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -122,6 +124,7 @@ export class MyProfileComponent implements OnInit {
   public addProfilePicture() {
     this.user.profilePicture = this.urls[0];
     this.http.put<SimpleUser>(`${this.host}/users/picture`, { "id": this.user.id, "profilePicture": this.user.profilePicture }).subscribe(value => {
+      this.utilsService.openSuccesSnackBar("Poza ta de profil a fost schimbata cu succes!")
     });
   }
 

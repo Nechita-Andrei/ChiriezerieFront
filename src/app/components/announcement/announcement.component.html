@@ -92,7 +92,7 @@
         </mat-card-footer>
     </mat-card>
 </section>
-<section>
+<section *ngIf="checkSuggestionsExistence()">
     <mat-card class="container">
         <mat-card-header>
             <mat-card-title style="font-size: xx-large;"><b>Sugestii</b></mat-card-title>

@@ -74,7 +74,14 @@ export class AnnouncementComponent implements OnInit {
         this.apartService.getAllByFilters(this.apartment.city).subscribe(
           res => {
             this.suggestedApartments = res.slice(0, 3);
-            //console.log(this.suggestedApartments.length);
+
+            
+            for(let i = 0;i<this.suggestedApartments.length;i++){
+              if(this.suggestedApartments[i].id == this.apartment.id){
+                this.suggestedApartments.splice(i, 1);
+              }
+            }
+            console.log(this.suggestedApartments.length);
           }
         );
         
@@ -113,9 +120,13 @@ export class AnnouncementComponent implements OnInit {
     this.selectedValue = selectedStar
   }
 
+  public checkSuggestionsExistence(){
+    return this.suggestedApartments.length != 0;
+  }
+
   public checkReviewed(){
 
-    if(this.comments.filter( e => e.userId.toString() === this.userOn.id.toString() || e.userId.toString() === this.user.id.toString()).length > 0){
+    if(this.comments.filter( e => e.userId.toString() === this.userOn.id.toString()).length > 0 || this.userOn.id.toString() == this.user.id.toString()){
       return false;
     }
 

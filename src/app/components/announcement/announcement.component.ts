@@ -138,7 +138,7 @@ export class AnnouncementComponent implements OnInit {
     let words = this.addressForm.controls['text'].value.split(' ')
     words.forEach(element => {
       console.log(element)
-      if (this.swearWords.includes(element)) {
+      if (this.swearWords.includes(element.toLowerCase())) {
         text += "**** "
       } else  {
         text += element + " "
@@ -159,7 +159,7 @@ export class AnnouncementComponent implements OnInit {
 
     this.apartService.postReview(review).subscribe(
       (res) => {
-        this.utilsService.openSuccesSnackBar("Review added successfully!");
+        this.utilsService.openSuccesSnackBar("Review-ul a fost adaugat cu succes!");
         this.clear()
         this.apartService.getComments(this.route.snapshot.params.id).subscribe(
           res => {
@@ -172,7 +172,7 @@ export class AnnouncementComponent implements OnInit {
     
       },
       (err) => {
-        this.utilsService.openFailSnackBar("Failed to submit the Review!");
+        this.utilsService.openFailSnackBar("Review-ul nu a putut fi adaugat!");
       }
     )    
   }
@@ -190,7 +190,7 @@ export class AnnouncementComponent implements OnInit {
   }
 
 
-  swearWords: string[] = ["muie", "pula", "pizda", "pisat", "cacat", "caca", "fuck", "coaie", "sloboz", "pla", "plm", "pisda", "pul@", "p1zda", "infect", "puli", "pulii", "ma-ta", "mata", "pizdii"]
+  swearWords: string[] = ["muie", "pula", "pizda", "pisat", "cacat", "caca", "fuck", "coaie", "sloboz", "pla", "plm", "pisda", "pul@", "p1zda", "infect", "puli", "pulii", "ma-ta", "mata", "pizdii", "prost", "rahat"]
 
 }
 

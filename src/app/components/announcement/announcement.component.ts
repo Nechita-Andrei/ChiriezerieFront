@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Apartment } from 'src/app/model/apartment';
 import { Review } from 'src/app/model/review';
 import { SimpleUser } from 'src/app/model/simpleUser';
@@ -25,7 +25,12 @@ export class AnnouncementComponent implements OnInit {
     private utilsService: UtilsService,
     private dialog: MatDialog,
     private fb: FormBuilder,
-  ) { }
+    private router: Router
+  ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+  }
 
   apartment: Apartment
   comments: Review[] = []
@@ -34,7 +39,13 @@ export class AnnouncementComponent implements OnInit {
   url: string = "/../";
   suggestedApartments: Apartment[] = []
 
+  refresh(): void {
+    window.location.reload();
+  }
+
   ngOnInit(): void {
+    //
+
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
       res => {
         console.log(this.route.snapshot.params);

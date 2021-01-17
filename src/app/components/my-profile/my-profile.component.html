@@ -12,6 +12,7 @@
                     <img style="padding: 15px;" *ngFor="let url of urls" [src]="url" width="300">
 
                     <div class="profile-editing" *ngIf="checkUser()">
+                        
                         <input id="profile-input" class="choose" type="file" (change)="changePicture($event)">
 
                         <button class="upload" type="submit" (click)="addProfilePicture()">Submit</button>

@@ -13,6 +13,11 @@
     flex-direction: column;
 }
 
+.profile-editing{
+    display: flex;
+    flex-direction: column;
+}
+
 
 .choose::-webkit-file-upload-button {
     margin-top: 20px;

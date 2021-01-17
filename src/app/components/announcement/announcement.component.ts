@@ -111,6 +111,15 @@ export class AnnouncementComponent implements OnInit {
     this.selectedValue = selectedStar
   }
 
+  public checkReviewed(){
+
+    if(this.comments.filter( e => e.userId.toString() === this.userOn.id.toString()).length > 0){
+      return false;
+    }
+
+    return true;
+  }
+
   onSubmit(): void {
     let review: Review = {
       apartmentId: Number(this.route.snapshot.params.id),

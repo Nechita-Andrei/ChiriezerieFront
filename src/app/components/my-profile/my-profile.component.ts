@@ -67,9 +67,7 @@ export class MyProfileComponent implements OnInit {
 
         }
         this.getSource();
-        console.log(res.apartments);
         this.apartments = res.apartments;
-        console.log(this.apartments);
       }
 
     );
@@ -81,7 +79,6 @@ export class MyProfileComponent implements OnInit {
       this.urls = ['../../../assets/avatar_placeholder.png']
     }
     else{
-      console.log(this.user.profilePicture);
       this.urls = [this.user.profilePicture];
     }
     
@@ -104,14 +101,12 @@ export class MyProfileComponent implements OnInit {
       }
     }
 
-   // console.log(this.files);
     this.urls = [];
 
     for (let file of this.files) {
 
       let reader = new FileReader();
       reader.onload = (e: any) => {
-       // console.log(e.target.result);
         this.urls.push(e.target.result);
       }
 
@@ -125,11 +120,8 @@ export class MyProfileComponent implements OnInit {
   }
 
   public addProfilePicture() {
-    //console.log('profile update', `${this.host}/users/picture`);
     this.user.profilePicture = this.urls[0];
-    //console.log(this.user.id, this.user.picture);
     this.http.put<SimpleUser>(`${this.host}/users/picture`, { "id": this.user.id, "profilePicture": this.user.profilePicture }).subscribe(value => {
-      console.log(value);
     });
   }
 

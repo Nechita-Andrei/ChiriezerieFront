@@ -28,15 +28,13 @@ export class ApartmentService {
   }
 
   getAllByFilters(city?: string, rooms?: number, minPrice?: number, maxPrice?: number, minSurface?: number, maxSurface?: number){
-    console.log(city);
-    console.log(rooms);
+
     return this.httpClient.get<Apartment[]>(`${this.host}/apartments/filter?` + `${city? "&city=" + city: ""}`  
     + `${rooms? "&rooms=" + rooms: ""}` + `${minPrice? "&minPrice=" + minPrice: ""}` + `${maxPrice? "&maxPrice=" + maxPrice: ""}`
     + `${minSurface? "&minSquareFeet=" + minSurface: ""}` + `${maxSurface? "&maxSquareFeet=" + maxSurface: ""}`);
   }
 
   findApartment(id: string): Observable<Apartment> {
-    console.log(id);
     return this.httpClient.get<Apartment>(`${this.host}/apartments/${id}`)
   }
 

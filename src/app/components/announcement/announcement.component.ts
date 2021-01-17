@@ -44,11 +44,8 @@ export class AnnouncementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //
-
     this.apartService.findApartment(this.route.snapshot.params.id).subscribe(
       res => {
-        console.log(this.route.snapshot.params);
         const apart: Apartment = {
           id: res.id,
           userId: res.userId,
@@ -72,7 +69,6 @@ export class AnnouncementComponent implements OnInit {
               apartments: []
             }
             this.user = usr
-            console.log(this.user);
           }
         )
         this.apartService.getAllByFilters(this.apartment.city).subscribe(
@@ -91,7 +87,7 @@ export class AnnouncementComponent implements OnInit {
         this.comments = res
       },
       err => {
-        this.utilsService.openFailSnackBar(err.error)
+        this.utilsService.openFailSnackBar("Could not load reviews!")
       }
     )
 
@@ -100,11 +96,13 @@ export class AnnouncementComponent implements OnInit {
         this.userOn = res
       }
     )
-    
   }
 
+  invalid: boolean = true
   addressForm = this.fb.group({
-    text: [null, Validators.required]
+    text: [null, Validators.required],
+    option: [null, Validators.required],
+    
   });
 
   selectedValue: number;
@@ -123,11 +121,8 @@ export class AnnouncementComponent implements OnInit {
       userId: Number(this.userOn.id)
     }
 
-    console.log(review)
-
     this.apartService.postReview(review).subscribe(
       (res) => {
-        console.log(res)
         this.utilsService.openSuccesSnackBar("Review added successfully!");
         this.clear()
         this.apartService.getComments(this.route.snapshot.params.id).subscribe(
@@ -141,7 +136,6 @@ export class AnnouncementComponent implements OnInit {
     
       },
       (err) => {
-        console.log(err)
         this.utilsService.openFailSnackBar("Failed to submit the Review!");
       }
     )    

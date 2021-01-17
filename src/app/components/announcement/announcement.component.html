@@ -10,7 +10,7 @@
                 <ul style="font-size: x-large;">
                     <li><b>Adresa: </b> {{apartment.address}}</li>
                     <li><b>Oras: </b> {{apartment.city}}</li>
-                  <li><b>Suprafata(m<sup>2</sup>): </b> {{apartment.squareFeet}}</li>
+                    <li><b>Suprafata(m<sup>2</sup>): </b> {{apartment.squareFeet}}</li>
                     <li><b>Numar de camere: </b> {{apartment.rooms}}</li>
                     <li><b>Detalii: </b> {{apartment.details}}</li>
                     <li><b>Pret: </b>{{apartment.price}} &euro;/luna</li>
@@ -66,18 +66,27 @@
             </mat-card>
         </mat-card-content>
         <mat-card-footer style="margin-top: 50px;">
-            <mat-card-title>Add Review</mat-card-title>
-            <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
-                    <textarea style="width: 100%; margin-top: 20px; min-height: 100px; background-color: white;" matInput placeholder="Details..." formControlName="text"></textarea>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Give Stars</mat-label>
-                        <mat-select (selectionChange)="selectStar($event.value)">
-                            <mat-option *ngFor="let star of stars" [value]="star">{{star}}</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-            </form>
-            <button mat-raised-button color="primary" type="submit"
-                 (click)="onSubmit()">Submit</button>
+            <mat-card-title>Adauga Review</mat-card-title>
+            <mat-card>
+                <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+                    <mat-card-header>
+                        <mat-form-field style="margin-left: -30px;" appearance="outline">
+                            <mat-label>Adauga o nota</mat-label>
+                            <mat-select (selectionChange)="selectStar($event.value)" formControlName="option">
+                                <mat-option *ngFor="let star of stars" [value]="star">{{star}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-card-header>
+                    <mat-card-content>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <mat-label>Review</mat-label>
+                                <textarea style="width: 100%; margin-top: 20px; min-height: 100px;" matInput placeholder="Details..." formControlName="text"></textarea>
+                            </mat-form-field>
+                    </mat-card-content>
+                </form>
+                <button mat-raised-button color="primary" type="submit"
+                [disabled]="addressForm.invalid" (click)="onSubmit()">Submit</button>
+            </mat-card>
         </mat-card-footer>
     </mat-card>
 </section>

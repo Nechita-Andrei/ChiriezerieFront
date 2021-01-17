@@ -85,12 +85,12 @@ export class AddApartmentComponent {
       this.apartmentService.addApartment(apartment).subscribe(
         (res) => {
           console.log(res)
-          this.utilsService.openSuccesSnackBar("Apartment added successfully!");
+          this.utilsService.openSuccesSnackBar("Apartament adaugat cu succes!");
           this.router.navigateByUrl('/home');
         },
         (err) => {
           console.log(err)
-          this.utilsService.openFailSnackBar("Failed to submit the application!");
+          this.utilsService.openFailSnackBar("Apartamentul nu a fost salvat cu succes!");
         }
       )    
     }

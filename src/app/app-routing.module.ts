@@ -17,21 +17,22 @@ const routes: Routes = [
   {
     path: 'add-apartment',
     component: AddApartmentComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
     component: MyProfileComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile/:id',
-    component: MyProfileComponent
+    component: MyProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'announcement/:id',
-    component: AnnouncementComponent
-    // canActivate: [AuthGuard]
+    component: AnnouncementComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
